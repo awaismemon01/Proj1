@@ -5,9 +5,7 @@ class CallTest{
         b=j;
     }
 
-    CallTest(){
-
-    }
+    CallTest(){}
 
     void meth(CallTest o){
         o.a +=10;
@@ -17,6 +15,10 @@ class CallTest{
     void meth(int i, int j){
         a +=10;
         b -=5;
+    }
+
+    CallTest Inc10(CallTest obj){
+        return new CallTest(a+10,b+10);
     }
 
 }
@@ -37,5 +39,11 @@ public class ObjCall {
         System.out.println("Value of i & j before call : "+i+" "+j);
         obj2.meth(i,j);
         System.out.println("Value of i & j after call : "+i+" "+j);
+
+        CallTest obj3 = new CallTest(30,25);
+        CallTest obj4;
+
+        obj4 = obj3.Inc10(obj3);
+        System.out.println(obj4.a+" "+ obj4.b);
     }
 }
